@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Git y GitHub - Blog de Programación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    img {
+      max-width: 600px;
+    }
+    .code-example {
+      background-color: #f0f0f0;
+      padding: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Git y GitHub</h1>
+    <p>Flujo de trabajo y comandos esenciales</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="blog-programacion.html">Inicio</a></li>
+      <li><a href="git-page.html">Git/GitHub</a></li>
+      <li><a href="terminal-page.html">Comandos Terminal</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>¿Qué es Git y GitHub?</h2>
+      
+      <p><strong>Git</strong> es un sistema de control de versiones distribuido que permite rastrear cambios en el código fuente durante el desarrollo de software. <strong>GitHub</strong> es una plataforma basada en la nube que aloja repositorios Git y añade muchas de sus propias características.</p>
+      
+      <img src="imagenes/github.png" alt="Git y GitHub logos">
+    </section>
+
+    <section>
+      <h2>Flujo de Trabajo en Git</h2>
+      
+      <p>El flujo de trabajo básico de Git consta de los siguientes pasos:</p>
+      
+      <ol>
+        <li><strong>Clonar/Iniciar</strong> un repositorio</li>
+        <li><strong>Crear/Cambiar</strong> a una rama (branch)</li>
+        <li><strong>Modificar</strong> archivos en tu directorio de trabajo</li>
+        <li><strong>Añadir</strong> archivos al área de preparación (staging)</li>
+        <li><strong>Confirmar</strong> cambios (commit)</li>
+        <li><strong>Enviar</strong> cambios a un repositorio remoto (push)</li>
+        <li><strong>Fusionar</strong> cambios (merge) de ser necesario</li>
+      </ol>
+
+      <div class="code-example">
+        # Flujo de trabajo típico<br>
+        git clone https://github.com/usuario/repositorio.git<br>
+        git checkout -b nueva-caracteristica<br>
+        # Hacer cambios en los archivos<br>
+        git add .<br>
+        git commit -m "Añadir nueva característica"<br>
+        git push origin nueva-caracteristica
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Comandos Esenciales de Git</h2>
+      
+      <p>Estos son los comandos más utilizados en Git, ordenados por su función en el flujo de trabajo:</p>
+      
+      <table>
+        <tr>
+          <th>Comando</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+        <tr>
+          <td><code>git init</code></td>
+          <td>Inicializa un nuevo repositorio Git</td>
+          <td><code>git init</code></td>
+        </tr>
+        <tr>
+          <td><code>git clone</code></td>
+          <td>Clona un repositorio existente</td>
+          <td><code>git clone https://github.com/usuario/repo.git</code></td>
+        </tr>
+        <tr>
+          <td><code>git status</code></td>
+          <td>Muestra el estado del directorio de trabajo</td>
+          <td><code>git status</code></td>
+        </tr>
+        <tr>
+          <td><code>git add</code></td>
+          <td>Añade archivos al área de preparación</td>
+          <td><code>git add archivo.txt</code> o <code>git add .</code></td>
+        </tr>
+        <tr>
+          <td><code>git commit</code></td>
+          <td>Guarda los cambios en el repositorio</td>
+          <td><code>git commit -m "Mensaje descriptivo"</code></td>
+        </tr>
+        <tr>
+          <td><code>git push</code></td>
+          <td>Envía cambios a un repositorio remoto</td>
+          <td><code>git push origin main</code></td>
+        </tr>
+        <tr>
+          <td><code>git pull</code></td>
+          <td>Obtiene cambios de un repositorio remoto</td>
+          <td><code>git pull origin main</code></td>
+        </tr>
+        <tr>
+          <td><code>git branch</code></td>
+          <td>Lista, crea o elimina ramas</td>
+          <td><code>git branch nueva-rama</code></td>
+        </tr>
+        <tr>
+          <td><code>git checkout</code></td>
+          <td>Cambia entre ramas o restaura archivos</td>
+          <td><code>git checkout nombre-rama</code></td>
+        </tr>
+        <tr>
+          <td><code>git merge</code></td>
+          <td>Fusiona una rama con otra</td>
+          <td><code>git merge feature</code></td>
+        </tr>
+      </table>
+
+      <h3>Comandos Adicionales Útiles</h3>
+      
+      <ul>
+        <li><em>git log</em>: Muestra el historial de commits</li>
+        <li><em>git diff</em>: Muestra cambios entre commits</li>
+        <li><em>git reset</em>: Deshace cambios en el área de preparación</li>
+        <li><em>git stash</em>: Guarda cambios temporalmente</li>
+        <li><em>git tag</em>: Gestiona etiquetas para versiones importantes</li>
+      </ul>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Flujo de Trabajo con GitHub</h2>
+      
+      <p>GitHub añade capacidades adicionales al flujo de trabajo de Git:</p>
+      
+      <h3>Pasos para colaborar en GitHub:</h3>
+      
+      <ol>
+        <li><strong>Fork</strong>: Crear una copia del repositorio en tu cuenta</li>
+        <li><strong>Clone</strong>: Clonar el fork a tu máquina local</li>
+        <li><strong>Branch</strong>: Crear una rama para tus cambios</li>
+        <li><strong>Commit</strong>: Realizar cambios y confirmarlos</li>
+        <li><strong>Push</strong>: Enviar cambios a tu fork</li>
+        <li><strong>Pull Request</strong>: Solicitar que tus cambios se incorporen al repositorio original</li>
+      </ol>
+
+      <div class="code-example">
+        # Colaboración en GitHub<br>
+        # 1. Fork (desde la interfaz de GitHub)<br>
+        # 2. Clonar tu fork<br>
+        git clone https://github.com/tu-usuario/repositorio.git<br>
+        # 3. Crear una rama<br>
+        git checkout -b nueva-caracteristica<br>
+        # 4. Hacer cambios y commit<br>
+        git add .<br>
+        git commit -m "Añadir nueva característica"<br>
+        # 5. Push<br>
+        git push origin nueva-caracteristica<br>
+        # 6. Pull Request (desde la interfaz de GitHub)
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Blog de Programación &copy; 2025 - Creado con HTML para la clase</p>
+  </footer>
+</body>
+</html>

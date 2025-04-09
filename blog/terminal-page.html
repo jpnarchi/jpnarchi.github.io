@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Comandos de Terminal - Blog de Programación</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    img {
+      max-width: 600px;
+    }
+    .code-example {
+      background-color: #f0f0f0;
+      padding: 10px;
+      font-family: monospace;
+    }
+    .terminal-example {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Comandos de Terminal</h1>
+    <p>Guía de referencia para la línea de comandos</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="blog-programacion.html">Inicio</a></li>
+      <li><a href="git-page.html">Git/GitHub</a></li>
+      <li><a href="terminal-page.html">Comandos Terminal</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Introducción a la Terminal</h2>
+      
+      <p>La <strong>terminal</strong> (también conocida como línea de comandos, consola o shell) es una interfaz basada en texto para controlar tu computadora. A diferencia de una interfaz gráfica donde interactúas con elementos visuales, en la terminal escribes comandos que el sistema interpreta y ejecuta.</p>
+      
+      <p>Aunque puede parecer intimidante al principio, la terminal ofrece <em>mayor control</em> y <em>eficiencia</em> para muchas tareas de programación.</p>
+      
+      <img src="imagenes/terminal.png" alt="Terminal en uso">
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Comandos Básicos de Terminal</h2>
+      
+      <p>Estos son los comandos más utilizados para navegar y manipular archivos:</p>
+      
+      <table>
+        <tr>
+          <th>Comando</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+        <tr>
+          <td><code>pwd</code></td>
+          <td>Muestra el directorio actual</td>
+          <td><code>pwd</code> → /home/usuario/proyectos</td>
+        </tr>
+        <tr>
+          <td><code>ls</code></td>
+          <td>Lista archivos y directorios</td>
+          <td><code>ls -la</code> → muestra archivos ocultos con detalles</td>
+        </tr>
+        <tr>
+          <td><code>cd</code></td>
+          <td>Cambia de directorio</td>
+          <td><code>cd Documents</code> → va a la carpeta Documents</td>
+        </tr>
+        <tr>
+          <td><code>mkdir</code></td>
+          <td>Crea un nuevo directorio</td>
+          <td><code>mkdir proyecto-nuevo</code></td>
+        </tr>
+        <tr>
+          <td><code>touch</code></td>
+          <td>Crea un archivo vacío</td>
+          <td><code>touch index.html</code></td>
+        </tr>
+        <tr>
+          <td><code>rm</code></td>
+          <td>Elimina archivos o directorios</td>
+          <td><code>rm archivo.txt</code> o <code>rm -r directorio</code></td>
+        </tr>
+        <tr>
+          <td><code>cp</code></td>
+          <td>Copia archivos o directorios</td>
+          <td><code>cp archivo.txt copia.txt</code></td>
+        </tr>
+        <tr>
+          <td><code>mv</code></td>
+          <td>Mueve o renombra archivos</td>
+          <td><code>mv archivo.txt nuevo-nombre.txt</code></td>
+        </tr>
+        <tr>
+          <td><code>cat</code></td>
+          <td>Muestra el contenido de un archivo</td>
+          <td><code>cat archivo.txt</code></td>
+        </tr>
+        <tr>
+          <td><code>echo</code></td>
+          <td>Muestra un texto o variable</td>
+          <td><code>echo "Hola mundo"</code></td>
+        </tr>
+      </table>
+
+      <h3>Ejemplo de Sesión en Terminal</h3>
+      
+      <div class="terminal-example">
+        $ pwd<br>
+        /home/usuario<br>
+        $ mkdir proyecto-web<br>
+        $ cd proyecto-web<br>
+        $ touch index.html style.css<br>
+        $ ls<br>
+        index.html  style.css<br>
+        $ echo "console.log('Hola mundo')" > script.js<br>
+        $ ls<br>
+        index.html  script.js  style.css<br>
+        $ cat script.js<br>
+        console.log('Hola mundo')
+      </div>
+    </section>
+
+    <section>
+      <h2>Comandos Avanzados</h2>
+      
+      <p>Estos comandos son útiles para tareas más específicas:</p>
+      
+      <ul>
+        <li><strong>grep</strong>: Busca patrones en archivos</li>
+        <li><strong>find</strong>: Busca archivos que coincidan con ciertos criterios</li>
+        <li><strong>chmod</strong>: Cambia permisos de archivos</li>
+        <li><strong>chown</strong>: Cambia el propietario de un archivo</li>
+        <li><strong>ps</strong>: Muestra procesos en ejecución</li>
+        <li><strong>kill</strong>: Termina procesos</li>
+        <li><strong>tar</strong>: Comprime/descomprime archivos</li>
+        <li><strong>history</strong>: Muestra historial de comandos</li>
+        <li><strong>ssh</strong>: Conecta a servidores remotos</li>
+        <li><strong>scp</strong>: Copia archivos entre servidores</li>
+      </ul>
+
+      <div class="code-example">
+        # Buscar texto en archivos<br>
+        grep "función" *.js<br><br>
+        
+        # Encontrar todos los archivos HTML<br>
+        find . -name "*.html"<br><br>
+        
+        # Cambiar permisos (dar permisos de ejecución)<br>
+        chmod +x script.sh
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>Redirecciones y Pipes</h2>
+      
+      <p>Las redirecciones y pipes son características poderosas que permiten manipular la entrada y salida de comandos:</p>
+      
+      <h3>Operadores de Redirección</h3>
+      
+      <ol>
+        <li><code>&gt;</code>: Redirige la salida a un archivo (sobrescribe)</li>
+        <li><code>&gt;&gt;</code>: Redirige la salida a un archivo (añade)</li>
+        <li><code>&lt;</code>: Toma la entrada desde un archivo</li>
+        <li><code>|</code>: Pipe, envía la salida de un comando como entrada a otro</li>
+      </ol>
+
+      <div class="terminal-example">
+        # Redirigir salida a un archivo<br>
+        $ echo "# Mi Proyecto" > README.md<br><br>
+        
+        # Añadir texto a un archivo existente<br>
+        $ echo "Este es un proyecto de ejemplo" >> README.md<br><br>
+        
+        # Usar pipes para filtrar salida<br>
+        $ ls -la | grep ".js"
+      </div>
+    </section>
+
+    <section>
+      <h2>Consejos y Trucos</h2>
+      
+      <ul>
+        <li>Usa la tecla <strong>Tab</strong> para autocompletar comandos y rutas</li>
+        <li>Presiona <strong>Ctrl+C</strong> para interrumpir un comando en ejecución</li>
+        <li>Usa las flechas <strong>↑</strong> y <strong>↓</strong> para navegar por el historial de comandos</li>
+        <li>Escribe <strong>clear</strong> o presiona <strong>Ctrl+L</strong> para limpiar la pantalla</li>
+        <li>Usa <strong>man [comando]</strong> para ver el manual de un comando específico</li>
+        <li>Añade <strong>--help</strong> al final de un comando para ver opciones de ayuda</li>
+      </ul>
+
+  
+    </section>
+  </main>
+
+  <footer>
+    <p>Blog de Programación &copy; 2025 - Creado con HTML para la clase</p>
+  </footer>
+</body>
+</html>

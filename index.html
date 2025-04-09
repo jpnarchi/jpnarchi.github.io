@@ -1,19 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Espacial</title>
-    <link 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Estilos base */
-        @import 
-url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
-        @import 
-url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swap');
         
         :root {
             --primary: #8A2BE2;
@@ -118,8 +113,7 @@ url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swa
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 
-255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
             animation: logo-shine 3s infinite;
         }
         
@@ -224,8 +218,7 @@ url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swa
         .btn {
             display: inline-block;
             padding: 0.8rem 2rem;
-            background: linear-gradient(90deg, var(--primary), 
-var(--secondary));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             border-radius: 30px;
@@ -240,6 +233,7 @@ var(--secondary));
             opacity: 0;
             transform: translateY(50px);
             animation: fade-in 1s forwards 1.1s;
+            text-align: center;
         }
         
         .btn::before {
@@ -249,8 +243,7 @@ var(--secondary));
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 
-255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.7s;
         }
         
@@ -268,16 +261,13 @@ var(--secondary));
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, var(--primary), 
-var(--secondary));
+            background: radial-gradient(circle at 30% 30%, var(--primary), var(--secondary));
             right: -50px;
             top: 20%;
-            box-shadow: 0 0 50px rgba(138, 43, 226, 0.5), inset 0 0 50px 
-rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.5), inset 0 0 50px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transform: translateX(100px);
-            animation: fade-in 1s forwards 1.4s, float 6s infinite 
-ease-in-out;
+            animation: fade-in 1s forwards 1.4s, float 6s infinite ease-in-out;
         }
         
         .orbit {
@@ -319,7 +309,7 @@ ease-in-out;
             }
         }
         
-        /* About Section */
+        /* Projects Section */
         section {
             padding: 100px 0;
             position: relative;
@@ -346,86 +336,6 @@ ease-in-out;
             background: var(--accent);
         }
         
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 1s;
-        }
-        
-        .about-text.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background: rgba(138, 43, 226, 0.2);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-        
-        .skill-tag:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .about-image {
-            position: relative;
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 1s 0.3s;
-        }
-        
-        .about-image.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent);
-            border-radius: 10px;
-            top: 20px;
-            left: 20px;
-            z-index: -1;
-        }
-        
-        /* Proyectos Section */
         .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -460,8 +370,7 @@ ease-in-out;
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary), 
-var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             transition: all 0.3s;
         }
         
@@ -490,12 +399,6 @@ var(--accent));
             color: var(--accent);
         }
         
-        .project-description {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: rgba(230, 230, 250, 0.8);
-        }
-        
         .project-tags {
             display: flex;
             flex-wrap: wrap;
@@ -513,6 +416,7 @@ var(--accent));
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-bottom: 1rem;
         }
         
         .project-link {
@@ -524,6 +428,15 @@ var(--accent));
         
         .project-link:hover {
             color: var(--accent);
+        }
+        
+        .project-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            opacity: 1;
+            transform: none;
         }
         
         /* Contact Section */
@@ -538,8 +451,7 @@ var(--accent));
             height: 100%;
             top: 0;
             left: 0;
-            background: url('/api/placeholder/1200/800') center/cover 
-no-repeat;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
             opacity: 0.1;
             filter: blur(5px);
         }
@@ -698,13 +610,9 @@ no-repeat;
         
         /* Responsividad */
         @media (max-width: 992px) {
-            .about-content, .contact-content {
+            .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-            
-            .about-image::before {
-                display: none;
             }
             
             .planet {
@@ -800,16 +708,13 @@ no-repeat;
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-content">
-            <a href="#" class="logo">JP NARCHI<span 
-style="color:var(--primary);">_</span></a>
+            <a href="#" class="logo">JP NARCHI<span style="color:var(--primary);">_</span></a>
             <div class="menu-toggle" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre Mí</a></li>
                 <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
             </ul>
         </div>
     </nav>
@@ -820,8 +725,7 @@ style="color:var(--primary);">_</span></a>
             <h1>Hola, soy <span class="highlight">JP Narchi</span></h1>
             <p>Desarrollador web apasionado por crear experiencias 
 digitales innovadoras y soluciones tecnológicas creativas.</p>
-            <a href="#projects" class="btn">Ver Proyectos <i class="fas 
-fa-rocket"></i></a>
+            <a href="#projects" class="btn">Ver Proyectos <i class="fas fa-rocket"></i></a>
         </div>
         
         <div class="orbit">
@@ -830,156 +734,127 @@ fa-rocket"></i></a>
         <div class="planet"></div>
     </header>
     
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Desarrollador & Diseñador</h3>
-                    <p>Soy un desarrollador web con experiencia en la 
-creación de sitios web y aplicaciones. Me apasiona transformar ideas en 
-realidades digitales con código limpio y diseño atractivo.</p>
-                    <p>Mi objetivo es combinar funcionalidad con estética 
-para crear experiencias memorables que destaquen en internet.</p>
-                    <div class="skills">
-                        <div class="skill-tag">HTML5</div>
-                        <div class="skill-tag">CSS3</div>
-                        <div class="skill-tag">JavaScript</div>
-                        <div class="skill-tag">React</div>
-                        <div class="skill-tag">Node.js</div>
-                        <div class="skill-tag">MongoDB</div>
-                        <div class="skill-tag">Git</div>
-                        <div class="skill-tag">UI/UX</div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Tu 
-Fotografía">
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Mis Proyectos</h2>
             <div class="projects-container">
-                <!-- Proyecto 1 -->
+                <!-- Proyecto 1 - HTML Blog -->
                 <div class="project-card">
-                    <img src="/api/placeholder/400/300" alt="Proyecto 1" 
-class="project-img">
+                    <img src="blog_html.png" alt="HTML Blog" class="project-img">
                     <div class="project-content">
-                        <h3 class="project-title">App de Exploración 
-Espacial</h3>
-                        <p class="project-description">Aplicación 
-interactiva que muestra información en tiempo real sobre misiones 
-espaciales y cuerpos celestes.</p>
+                        <h3 class="project-title">HTML Blog</h3>
                         <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">API NASA</span>
-                            <span class="project-tag">Three.js</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab 
-fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas 
-fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 2 -->
-                <div class="project-card">
-                    <img src="/api/placeholder/400/300" alt="Proyecto 2" 
-class="project-img">
-                    <div class="project-content">
-                        <h3 class="project-title">E-commerce 
-Galáctico</h3>
-                        <p class="project-description">Tienda online con 
-temática espacial, sistema de carrito y pasarela de pagos integrada.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
-                            <span class="project-tag">Express</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab 
-fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas 
-fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 3 -->
-                <div class="project-card">
-                    <img src="/api/placeholder/400/300" alt="Proyecto 3" 
-class="project-img">
-                    <div class="project-content">
-                        <h3 class="project-title">Blog Astronómico</h3>
-                        <p class="project-description">Blog con artículos 
-sobre astronomía y exploración espacial, con sistema de comentarios y 
-categorías.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">WordPress</span>
+                            <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
-                            <span class="project-tag">PHP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab 
-fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas 
-fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 4 -->
-                <div class="project-card">
-                    <img src="/api/placeholder/400/300" alt="Proyecto 4" 
-class="project-img">
-                    <div class="project-content">
-                        <h3 class="project-title">Dashboard 
-Interplanetario</h3>
-                        <p class="project-description">Panel de control 
-para visualizar datos de diferentes planetas y sus características.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Chart.js</span>
-                            <span class="project-tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab 
-fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas 
-fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Proyecto 5 -->
-                <div class="project-card">
-                    <img src="/api/placeholder/400/300" alt="Proyecto 5" 
-class="project-img">
-                    <div class="project-content">
-                        <h3 class="project-title">Juego Espacial</h3>
-                        <p class="project-description">Juego de navegador 
-donde esquivas asteroides y recoges combustible para tu nave espacial.</p>
-                        <div class="project-tags">
                             <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Canvas</span>
-                            <span class="project-tag">HTML5</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link"><i class="fab 
-fa-github"></i></a>
-                            <a href="#" class="project-link"><i class="fas 
-fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                            <a href="blog/blog-programacion.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
                         </div>
+                        <a href="blog/blog-programacion.html" class="btn project-btn">Ver Proyecto</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 JP Narchi. Todos los derechos reservados.</p>
+        </div>
+        <a href="#home" class="back-to-top" id="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </footer>
+    
+    <script>
+        // Crear estrellas dinámicamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
                 
-                <!-- Proyecto 6 -->
-                <div
+                // Posición aleatoria
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 3;
+                
+                // Duración de parpadeo aleatoria
+                const duration = 3 + Math.random() * 7;
+                
+                // Opacidad aleatoria
+                const opacity = 0.5 + Math.random() * 0.5;
+                
+                star.style.left = posX + '%';
+                star.style.top = posY + '%';
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.setProperty('--duration', duration + 's');
+                star.style.setProperty('--opacity', opacity);
+                
+                starsContainer.appendChild(star);
+            }
+            
+            // Cambiar navbar al hacer scroll
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Mostrar botón de volver arriba
+                const backToTop = document.getElementById('back-to-top');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+                
+                // Animación de entrada para elementos al hacer scroll
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.75) {
+                        const animElements = section.querySelectorAll('.project-card');
+                        animElements.forEach(el => {
+                            el.classList.add('show');
+                        });
+                        
+                        const contactElements = section.querySelectorAll('.contact-info, .contact-form');
+                        contactElements.forEach(el => {
+                            el.classList.add('show');
+                        });
+                    }
+                });
+            });
+            
+            // Menú móvil
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
