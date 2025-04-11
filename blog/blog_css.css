@@ -1,0 +1,145 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color: #333;
+    background-image: url('imagenes/fondo.png');
+  }
+  
+  /* Encabezado */
+  header {
+    border: 2px solid #3366cc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  header h1 {
+    font-weight: bold;
+    color: #2244aa;
+  }
+  
+  /* Navegación */
+  nav {
+    border-top: 2px solid #3366cc;
+    border-bottom: 2px solid #3366cc;
+    padding: 8px 0;
+    margin: 10px 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #3366cc;
+  }
+  
+  /* Contenido principal */
+  main {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    padding: 0 15px;
+  }
+  
+  /* Secciones */
+  section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #cccccc;
+  }
+  
+  /* Encabezados */
+  h2 {
+    color: #3366cc;
+    border-left: 4px solid #ff6600;
+    padding-left: 8px;
+  }
+  
+  h3 {
+    color: #ff6600;
+    font-style: italic;
+  }
+  
+  /* Enlaces */
+  a {
+    color: #3366cc;
+  }
+  
+  /* Tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 6px;
+  }
+  
+  th {
+    background-color: #e6f0ff;
+    font-weight: bold;
+  }
+  
+  /* Ejemplos de código */
+  .code-example {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    overflow: auto;
+    margin: 10px 0;
+    border: 1px solid #dddddd;
+  }
+  
+  /* Clases CSS */
+  .selector-ejemplo {
+    background-color: #e6f0ff;
+    border: 1px solid #3366cc;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+  
+  .propiedad-ejemplo {
+    background-color: #fff0e6;
+    border: 1px solid #ff6600;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+  
+  /* ID CSS */
+  #importante {
+    background-color: #ffe6e6;
+    border: 1px solid #cc3333;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  /* Pie de página */
+  footer {
+    border-top: 1px solid #3366cc;
+    padding-top: 8px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: center;
+    height: 40px;
+  }

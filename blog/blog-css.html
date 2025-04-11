@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS - Blog de Programación</title>
+  <link rel="stylesheet" href="blog_css.css">
+</head>
+
+<body>
+  <header>
+    <h1>CSS: Hojas de Estilo en Cascada</h1>
+    <p>Aprende los fundamentos de CSS para dar estilo a tus páginas web</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="blog-programacion.html">Inicio</a></li>
+      <li><a href="git-page.html">Git/GitHub</a></li>
+      <li><a href="terminal-page.html">Comandos Terminal</a></li>
+      <li><a href="blog-css.html">Estilos CSS</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>¿Qué es CSS?</h2>
+      
+      <p><strong>CSS</strong> (Cascading Style Sheets) o Hojas de Estilo en Cascada es un lenguaje que se utiliza para describir la presentación de documentos HTML o XML, incluyendo colores, diseño, y fuentes. Permite separar el contenido de un documento web (HTML) de su presentación visual.</p>
+      
+      <p>CSS fue desarrollado por el W3C (World Wide Web Consortium) y se ha convertido en un estándar fundamental para el diseño web moderno. Con CSS podemos controlar el aspecto visual de múltiples páginas web a la vez, lo que facilita enormemente el mantenimiento y la coherencia visual de un sitio web.</p>
+    </section>
+
+    <section>
+      <h2>Componentes principales de CSS</h2>
+      
+      <h3>Selectores</h3>
+      <p>Los <strong>selectores</strong> son patrones que se utilizan para seleccionar los elementos HTML a los que queremos aplicar estilos. Indican a CSS qué elementos HTML deben ser afectados por los estilos declarados.</p>
+      
+      <div class="selector-ejemplo">
+        p { color: blue; } /* Selector de tipo: selecciona todos los párrafos */
+      </div>
+
+      <h3>Propiedades</h3>
+      <p>Las <strong>propiedades</strong> son identificadores que indican qué característica de estilo queremos modificar. Ejemplos de propiedades incluyen <code>color</code>, <code>font-size</code>, <code>margin</code>, <code>padding</code>, etc.</p>
+
+      <div class="propiedad-ejemplo">
+        h1 { font-size: 24px; } /* 'font-size' es la propiedad */
+      </div>
+
+      <h3>Valores</h3>
+      <p>Los <strong>valores</strong> son asignaciones específicas para las propiedades. Por ejemplo, para la propiedad <code>color</code>, los valores pueden ser nombres de colores como <code>red</code>, códigos hexadecimales como <code>#FF0000</code>, o funciones como <code>rgb(255, 0, 0)</code>.</p>
+      
+      <div class="propiedad-ejemplo">
+        p { color: #0000FF; } /* '#0000FF' es el valor para la propiedad 'color' */
+      </div>
+    </section>
+
+    <section>
+      <h2>Tipos de Selectores</h2>
+      
+      <h3>Selector de Tipo</h3>
+      <p>Selecciona todos los elementos que coinciden con el nombre del elemento especificado.</p>
+      
+      <div class="code-example">
+        p {<br>
+        &nbsp;&nbsp;color: blue;<br>
+        &nbsp;&nbsp;font-size: 16px;<br>
+        }
+      </div>
+      
+      <p>Este ejemplo seleccionará <strong>todos</strong> los elementos <code>&lt;p&gt;</code> en la página y aplicará los estilos definidos.</p>
+
+      <h3>Selector de Clase</h3>
+      <p>Selecciona elementos con un atributo de clase específico. Se denota con un punto (<code>.</code>) seguido del nombre de la clase.</p>
+      
+      <div class="code-example">
+        .destacado {<br>
+        &nbsp;&nbsp;background-color: yellow;<br>
+        &nbsp;&nbsp;font-weight: bold;<br>
+        }
+      </div>
+      
+      <p>Este ejemplo seleccionará cualquier elemento HTML que tenga el atributo <code>class="destacado"</code>, como por ejemplo: <code>&lt;p class="destacado"&gt;</code>.</p>
+
+      <h3>Selector de ID</h3>
+      <p>Selecciona un elemento con un atributo ID específico. Se denota con un hash (<code>#</code>) seguido del nombre del ID.</p>
+      
+      <div class="code-example">
+        #cabecera {<br>
+        &nbsp;&nbsp;background-color: black;<br>
+        &nbsp;&nbsp;color: white;<br>
+        }
+      </div>
+      
+      <p>Este ejemplo seleccionará el elemento HTML que tenga el atributo <code>id="cabecera"</code>, como por ejemplo: <code>&lt;header id="cabecera"&gt;</code>.</p>
+      
+      <div id="importante">
+        <p>¡Importante! Los ID deben ser únicos en un documento HTML, mientras que las clases pueden aplicarse a múltiples elementos. Esta es la diferencia fundamental entre los selectores de ID y de clase.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Propiedades CSS Esenciales</h2>
+      
+      <p>A continuación se presentan algunas de las propiedades más utilizadas en CSS:</p>
+      
+      <table>
+        <tr>
+          <th>Propiedad</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+        <tr>
+          <td><code>color</code></td>
+          <td>Define el color del texto</td>
+          <td><code>color: #333333;</code></td>
+        </tr>
+        <tr>
+          <td><code>background-color</code></td>
+          <td>Define el color de fondo de un elemento</td>
+          <td><code>background-color: #f8f8f8;</code></td>
+        </tr>
+        <tr>
+          <td><code>font-family</code></td>
+          <td>Define la familia de fuentes a utilizar</td>
+          <td><code>font-family: Arial, sans-serif;</code></td>
+        </tr>
+        <tr>
+          <td><code>font-size</code></td>
+          <td>Define el tamaño de la fuente</td>
+          <td><code>font-size: 16px;</code></td>
+        </tr>
+        <tr>
+          <td><code>margin</code></td>
+          <td>Define el espacio alrededor de un elemento</td>
+          <td><code>margin: 10px 20px;</code></td>
+        </tr>
+        <tr>
+          <td><code>padding</code></td>
+          <td>Define el espacio entre el contenido y el borde</td>
+          <td><code>padding: 15px;</code></td>
+        </tr>
+        <tr>
+          <td><code>border</code></td>
+          <td>Define el borde alrededor de un elemento</td>
+          <td><code>border: 1px solid #dddddd;</code></td>
+        </tr>
+        <tr>
+          <td><code>width</code></td>
+          <td>Define el ancho de un elemento</td>
+          <td><code>width: 100%;</code></td>
+        </tr>
+        <tr>
+          <td><code>height</code></td>
+          <td>Define la altura de un elemento</td>
+          <td><code>height: 50px;</code></td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Uso de CSS en un documento HTML</h2>
+      
+      <p>Existen tres formas principales de incluir CSS en un documento HTML:</p>
+      
+      <h3>1. CSS Interno (Internal CSS)</h3>
+      <p>Se define dentro de la etiqueta <code>&lt;style&gt;</code> en la sección <code>&lt;head&gt;</code> del documento HTML.</p>
+      
+      <div class="code-example">
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;style&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;body {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-family: Arial, sans-serif;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin: 20px;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&lt;/style&gt;<br>
+        &lt;/head&gt;
+      </div>
+
+      <h3>2. CSS Externo (External CSS)</h3>
+      <p>Se define en un archivo .css separado y se vincula al documento HTML mediante la etiqueta <code>&lt;link&gt;</code>.</p>
+      
+      <div class="code-example">
+        &lt;head&gt;<br>
+        &nbsp;&nbsp;&lt;link rel="stylesheet" href="estilos.css"&gt;<br>
+        &lt;/head&gt;
+      </div>
+
+      <h3>3. CSS en línea (Inline CSS)</h3>
+      <p>Se aplica directamente a un elemento HTML mediante el atributo <code>style</code>.</p>
+      
+      <div class="code-example">
+        &lt;p style="color: blue; font-size: 16px;"&gt;Este es un párrafo con estilo en línea.&lt;/p&gt;
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Blog de Programación &copy; 2025 - Creado con HTML y CSS para la clase</p>
+  </footer>
+</body>
+</html>
