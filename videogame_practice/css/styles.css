@@ -1,0 +1,114 @@
+* {
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    color: #e0e0ff;
+  }
+  
+  body {
+    background-color: #050520;
+    background-image: 
+      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 10vh 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main";
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  #headerContainer {
+    grid-area: header;
+    background-color: rgba(0, 30, 60, 0.7);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid #4287f5;
+    box-shadow: 0 0 25px #4287f5;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0px;
+    color: #fff;
+    text-shadow: 0 0 10px #4287f5, 0 0 20px #4287f5;
+    letter-spacing: 3px;
+    font-weight: 600;
+  }
+  
+  canvas {
+    border: 2px solid #4287f5;
+    box-shadow: 0 0 20px #4287f5, inset 0 0 30px rgba(66, 135, 245, 0.5);
+    background-color: rgba(0, 10, 30, 0.6);
+    border-radius: 8px;
+  }
+  
+  #canvas {
+    background: linear-gradient(to bottom, #000510, #001030);
+    grid-area: main;
+  }
+  
+  .lil-gui.autoPlace {
+    top: 15vh;
+    right: 5vw;
+    background-color: rgba(5, 15, 40, 0.85);
+    border: 1px solid #4287f5;
+    border-radius: 8px;
+  }
+  
+  .lil-gui .title {
+    color: #4287f5;
+  }
+  
+  #backButton {
+    margin: 10px;
+    background-color: #1a3b6d;
+    color: #e0e0ff;
+    border: 1px solid #4287f5;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #backButton:hover {
+    background-color: #2d5ba3;
+    box-shadow: 0 0 10px #4287f5;
+  }
+  
+  #examplesContainer {
+    margin: 1em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .exampleGroup {
+    margin: 0.5em;
+    padding: 1em;
+    max-width: 40vw;
+    border: 1px solid #4287f5;
+    border-radius: 12px;
+    background-color: rgba(5, 15, 40, 0.7);
+    box-shadow: 0 0 15px rgba(66, 135, 245, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  .exampleGroup:hover {
+    box-shadow: 0 0 25px rgba(66, 135, 245, 0.8);
+    transform: translateY(-3px);
+  }

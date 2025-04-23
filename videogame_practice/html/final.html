@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cosmic Coin Collector</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/styles.css">
+        <script src="../js/game_classes.js"></script>
+        <script src="../js/06_sprites.js"></script>
+        <style>
+            /* Forzar que el headerContainer muestre sus elementos en columna */
+            #headerContainer {
+                display: flex;
+                margin-top: 50px;
+                height: 0px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            #headerContainer h1 {
+                margin-bottom: 5px;
+            }
+            
+            /* Definición de la clase author-credit */
+            .author-credit {
+                display: block; /* Forzar que sea un elemento de bloque */
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #555;
+                margin-top: 0;
+                margin-bottom: 20px;
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="headerContainer">
+            <h1>Cosmic Coin Collector</h1>
+            <div class="author-credit">Created by Juan Pablo Narchi A01781518</div>
+        </div>
+        
+        <div class="game-container">
+            <div class="score-container">
+                <span id="score-text">Coins: 0/10</span>
+            </div>
+            <canvas id="canvas"></canvas>
+            
+            <div id="victory-message" class="victory-message" style="display: none;">
+                <h2>✨ All Coins Collected! ✨</h2>
+                <p></p>
+                <p>Press 'R' to embark on a new cosmic journey</p>
+            </div>
+        </div>
+
+        <a href="./">
+            <button id="backButton">Return to Base</button>
+        </a>
+
+        <script>
+            // Clase para las monedas coleccionables
+            class Coin extends AnimatedObject {
+                constructor(position, size, sheetCols) {
+                    super(position, size, size, "gold", "coin", sheetCols);
+                    this.collected = false;
+                }
+
+                update(deltaTime) {
+                    if (!this.collected) {
+                        this.updateFrame(deltaTime);
+                    }
+                }
+            }
+
+            // Extender la clase Game para incluir monedas
+            class CoinCollectionGame extends Game {
+                constructor() {
+                    super();
+                    this.score = 0;
+                    this.scoreLabel = new TextLabel(20, 40, "24px Arial", "black");
+                    this.allCoinsCollected = false;
+                    this.victoryMessage = document.getElementById('victory-message');
+                    this.scoreText = document.getElementById('score-text');
+                }
+
+                initObjects() {
+                    super.initObjects();
+                    
+                    const numCoins = 10;
+                    const coinSize = 32;
+                    
+                    for (let i = 0; i < numCoins; i++) {
+                        let pos = new Vec(
+                            Math.floor(Math.random() * (canvasWidth - coinSize)),
+                            Math.floor(Math.random() * (canvasHeight - coinSize))
+                        );
+                        let coin = new Coin(pos, coinSize, 8);
+                        coin.setSprite('../assets/sprites/coin_gold.png', new Rect(0, 0, 32, 32));
+                        coin.setAnimation(0, 7, true, 80);
+                        this.actors.push(coin);
+                    }
+                }
+
+                draw(ctx) {
+                    ctx.fillStyle = "#2c3e50";
+                    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                    
+                    for (let actor of this.actors) {
+                        if (!actor.collected) {
+                            actor.draw(ctx);
+                        }
+                    }
+                    this.player.draw(ctx);
+                    
+                    // Actualizar el contador en el DOM
+                    this.scoreText.textContent = `Coins: ${this.score}/10`;
+                }
+
+                update(deltaTime) {
+                    super.update(deltaTime);
+                    
+                    for (let actor of this.actors) {
+                        if (actor instanceof Coin && !actor.collected) {
+                            if (this.checkCollision(this.player, actor)) {
+                                actor.collected = true;
+                                this.score++;
+                                
+                                if (this.score >= 10) {
+                                    this.allCoinsCollected = true;
+                                    this.victoryMessage.style.display = 'block';
+                                }
+                            }
+                        }
+                    }
+                }
+
+                checkCollision(obj1, obj2) {
+                    return obj1.position.x + obj1.width > obj2.position.x &&
+                           obj1.position.x < obj2.position.x + obj2.width &&
+                           obj1.position.y + obj1.height > obj2.position.y &&
+                           obj1.position.y < obj2.position.y + obj2.height;
+                }
+
+                createEventListeners() {
+                    super.createEventListeners();
+                    
+                    window.addEventListener('keydown', (event) => {
+                        if (event.key === 'r' && this.allCoinsCollected) {
+                            this.score = 0;
+                            this.allCoinsCollected = false;
+                            this.victoryMessage.style.display = 'none';
+                            this.initObjects();
+                        }
+                    });
+                }
+            }
+
+            function main() {
+                const canvas = document.getElementById('canvas');
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+                ctx = canvas.getContext('2d');
+
+                game = new CoinCollectionGame();
+                drawScene(0);
+            }
+
+            window.onload = main;
+        </script>
+    </body>
+</html>
