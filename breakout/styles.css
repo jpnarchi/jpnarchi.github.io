@@ -330,4 +330,41 @@ body::before {
     #gameCanvas {
         height: 400px;
     }
+}
+
+.game-config {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.config-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.config-item label {
+    color: #00c3ff;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px rgba(0, 195, 255, 0.5);
+}
+
+.config-item input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid rgba(0, 195, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.config-item input:focus {
+    outline: none;
+    border-color: #00c3ff;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.3);
 } 
