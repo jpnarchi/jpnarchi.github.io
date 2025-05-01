@@ -1,3 +1,4 @@
+// Obtener elementos del DOM
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
@@ -8,10 +9,11 @@ const restartButton = document.getElementById('restartButton');
 const startScreen = document.getElementById('startScreen');
 const startButton = document.getElementById('startButton');
 
-// Load ball image
+// Cargar imagen de la pelota
 const ballImage = new Image();
 let imageLoaded = false;
 
+// Cuando la imagen se carga correctamente
 ballImage.onload = function() {
     imageLoaded = true;
     // Habilitar el botón de inicio solo cuando la imagen esté cargada
@@ -19,6 +21,7 @@ ballImage.onload = function() {
     startButton.textContent = 'Comenzar Juego';
 };
 
+// Si hay error al cargar la imagen
 ballImage.onerror = function() {
     console.error('Error al cargar la imagen');
     startButton.textContent = 'Error al cargar la imagen';
@@ -30,29 +33,29 @@ ballImage.src = 'jp.png';
 startButton.disabled = true;
 startButton.textContent = 'Cargando...';
 
-// Set canvas size
+// Configurar tamaño del canvas
 canvas.width = 800;
 canvas.height = 500;
 
-// Game variables
+// Variables del juego
 let score = 0;
 let lives = 3;
 let gameRunning = false;
 
-// Paddle properties
+// Propiedades de la paleta
 const paddleWidth = 100;
 const paddleHeight = 15;
 const paddleSpeed = 8;
 let paddleX = (canvas.width - paddleWidth) / 2;
 
-// Ball properties
+// Propiedades de la pelota
 const ballRadius = 20; // Aumentado para la imagen
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
 let ballSpeedX = -2; // Reducido de 5 a 2
 let ballSpeedY = -6; // Reducido de -5 a -2
 
-// Brick properties
+// Propiedades de los ladrillos
 const brickRowCount = 5;
 const brickColumnCount = 8;
 const brickWidth = 80;
@@ -61,7 +64,7 @@ const brickPadding = 10;
 const brickOffsetTop = 30;
 const brickOffsetLeft = 30;
 
-// Create bricks
+// Crear matriz de ladrillos
 const bricks = [];
 for (let c = 0; c < brickColumnCount; c++) {
     bricks[c] = [];
@@ -70,20 +73,21 @@ for (let c = 0; c < brickColumnCount; c++) {
     }
 }
 
-// Colors for bricks
+// Colores para los ladrillos
 const brickColors = ['#ff4757', '#ff6b81', '#ffa502', '#ffd700', '#7bed9f'];
 
-// Mouse movement
+// Variables para el movimiento
 let rightPressed = false;
 let leftPressed = false;
 
-// Event listeners
+// Eventos del teclado y mouse
 document.addEventListener('keydown', keyDownHandler);
 document.addEventListener('keyup', keyUpHandler);
 document.addEventListener('mousemove', mouseMoveHandler);
 restartButton.addEventListener('click', restartGame);
 startButton.addEventListener('click', startGame);
 
+// Función para manejar tecla presionada
 function keyDownHandler(e) {
     if (e.key === 'Right' || e.key === 'ArrowRight') {
         rightPressed = true;
@@ -92,6 +96,7 @@ function keyDownHandler(e) {
     }
 }
 
+// Función para manejar tecla liberada
 function keyUpHandler(e) {
     if (e.key === 'Right' || e.key === 'ArrowRight') {
         rightPressed = false;
@@ -100,6 +105,7 @@ function keyUpHandler(e) {
     }
 }
 
+// Función para manejar movimiento del mouse
 function mouseMoveHandler(e) {
     const relativeX = e.clientX - canvas.offsetLeft;
     if (relativeX > 0 && relativeX < canvas.width) {
@@ -107,6 +113,7 @@ function mouseMoveHandler(e) {
     }
 }
 
+// Función para detectar colisiones
 function collisionDetection() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
@@ -119,7 +126,7 @@ function collisionDetection() {
                     score += 10;
                     scoreElement.textContent = score;
                     
-                    // Check if all bricks are destroyed
+                    // Verificar si se destruyeron todos los ladrillos
                     if (score === brickRowCount * brickColumnCount * 10) {
                         gameOver(true);
                     }
@@ -129,6 +136,7 @@ function collisionDetection() {
     }
 }
 
+// Función para dibujar la pelota
 function drawBall() {
     if (imageLoaded) {
         ctx.drawImage(ballImage, ballX - ballRadius, ballY - ballRadius, ballRadius * 2, ballRadius * 2);
@@ -142,6 +150,7 @@ function drawBall() {
     }
 }
 
+// Función para dibujar la paleta
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
@@ -150,6 +159,7 @@ function drawPaddle() {
     ctx.closePath();
 }
 
+// Función para dibujar los ladrillos
 function drawBricks() {
     for (let c = 0; c < brickColumnCount; c++) {
         for (let r = 0; r < brickRowCount; r++) {
@@ -169,6 +179,7 @@ function drawBricks() {
     }
 }
 
+// Función para manejar el fin del juego
 function gameOver(win = false) {
     gameRunning = false;
     finalScoreElement.textContent = score;
@@ -178,6 +189,7 @@ function gameOver(win = false) {
     }
 }
 
+// Función para iniciar el juego
 function startGame() {
     if (!imageLoaded) return; // No iniciar el juego si la imagen no está cargada
     startScreen.style.display = 'none';
@@ -185,6 +197,7 @@ function startGame() {
     draw();
 }
 
+// Función para reiniciar el juego
 function restartGame() {
     score = 0;
     lives = 3;
@@ -208,6 +221,7 @@ function restartGame() {
     draw();
 }
 
+// Función principal de dibujo y actualización del juego
 function draw() {
     if (!gameRunning) return;
     
