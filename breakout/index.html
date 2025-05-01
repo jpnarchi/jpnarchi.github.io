@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Breakout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score">Puntuación: <span id="score">0</span></div>
+            <div class="lives">Vidas: <span id="lives">3</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="start-screen" id="startScreen">
+            <div class="animated-image-container">
+                <img src="jp.png" alt="Imagen animada" class="animated-image" id="animatedImage">
+            </div>
+            <h2>Juego Breakout</h2>
+            <button id="startButton">Comenzar Juego</button>
+        </div>
+        <div class="game-over" id="gameOver">
+            <h2>¡Juego Terminado!</h2>
+            <p>Tu puntuación: <span id="finalScore">0</span></p>
+            <button id="restartButton">Jugar de Nuevo</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
