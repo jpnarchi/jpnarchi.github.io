@@ -1,3 +1,6 @@
+/// Juan Pablo Narchi A01781518
+// JUEGO BREAKOUT LOGICA DE JAVASCRIPT
+
 // Obtener elementos del DOM
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
