@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Items y Usuarios</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --background-color: #f5f6fa;
+      --card-background: #ffffff;
+      --text-color: #2c3e50;
+      --border-radius: 8px;
+      --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .section {
+      background-color: var(--card-background);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-2px);
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
+
+    button {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      margin-top: 1rem;
+      border: 1px solid #e9ecef;
+      font-family: monospace;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Administración de Items y Usuarios</h1>
+
+  <section class="section">
+    <h2>Registrar Nuevo Item</h2>
+    <form id="itemForm">
+      <label>Nombre: <input type="text" name="name" required></label>
+      <label>Descripción: <input type="text" name="description" required></label>
+      <button type="submit">Registrar Item</button>
+    </form>
+    <div id="itemFormResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Consultar Items</h2>
+    <form id="getItemForm">
+      <label>ID del Item (vacío para todos): <input type="number" name="id"></label>
+      <button type="submit">Consultar</button>
+    </form>
+    <div id="getItemResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Borrar Item</h2>
+    <form id="deleteItemForm">
+      <label>ID del Item: <input type="number" name="id" required></label>
+      <button type="submit">Borrar</button>
+    </form>
+    <div id="deleteItemResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Actualizar Item</h2>
+    <form id="updateItemForm">
+      <label>ID del Item: <input type="number" name="id" required></label>
+      <label>Nombre (opcional): <input type="text" name="name"></label>
+      <label>Descripción (opcional): <input type="text" name="description"></label>
+      <button type="submit">Actualizar</button>
+    </form>
+    <div id="updateItemResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Registrar Nuevo Usuario</h2>
+    <form id="userForm">
+      <label>Nombre: <input type="text" name="name" required></label>
+      <label>Email: <input type="email" name="email" required></label>
+      <label>IDs de Items (separados por coma): <input type="text" name="items"></label>
+      <button type="submit">Registrar Usuario</button>
+    </form>
+    <div id="userFormResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Consultar Usuarios</h2>
+    <form id="getUserForm">
+      <label>ID del Usuario (vacío para todos): <input type="number" name="id"></label>
+      <button type="submit">Consultar</button>
+    </form>
+    <div id="getUserResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Borrar Usuario</h2>
+    <form id="deleteUserForm">
+      <label>ID del Usuario: <input type="number" name="id" required></label>
+      <button type="submit">Borrar</button>
+    </form>
+    <div id="deleteUserResult" class="result"></div>
+  </section>
+
+  <section class="section">
+    <h2>Actualizar Usuario</h2>
+    <form id="updateUserForm">
+      <label>ID del Usuario: <input type="number" name="id" required></label>
+      <label>Nombre (opcional): <input type="text" name="name"></label>
+      <label>Email (opcional): <input type="email" name="email"></label>
+      <label>IDs de Items (separados por coma): <input type="text" name="items"></label>
+      <button type="submit">Actualizar</button>
+    </form>
+    <div id="updateUserResult" class="result"></div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html> 

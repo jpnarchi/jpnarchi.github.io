@@ -1,0 +1,14 @@
+{
+  "name": "dom_basics",
+  "version": "1.0.0",
+  "description": "API y frontend para administrar items y usuarios de un juego.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+} 
