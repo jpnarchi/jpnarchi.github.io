@@ -42,7 +42,6 @@ end
 
 defmodule Main do
   def main(args) do
-    # Check how many arguments were sent
     case args do
       [n] ->
         PalindromeCounter.count_palindromes(String.to_integer(n))
@@ -53,5 +52,5 @@ defmodule Main do
   end
 end
 
-# Call the main function with the arguments used in the command line
+
 Main.main(System.argv())

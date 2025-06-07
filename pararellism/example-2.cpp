@@ -57,7 +57,7 @@ void * sum_primes_range(void * data) {
 
 // Function to sum primes up to n using threads
 int sum_primes_parallel(inputs_t inputs) {
-    unsigned long long range = inputs.n / inputs.threads;
+    unsigned long long range = (inputs.n - 1) / inputs.threads;
     
     // Create an array of data structures
     thread_data_count_t * data = new thread_data_count_t[inputs.threads];
@@ -75,10 +75,8 @@ int sum_primes_parallel(inputs_t inputs) {
         data[i].total_sum = &total_sum;
         data[i].mutex = &mutex;
         // Compute the start and stop values used by each thread
-        // This is a naive approach. Must be adapted to consider the case
-        // when n is not divisible by the number of threads
-        data[i].start = (range * i) + 2;  // Start from 2 since 0 and 1 are not prime
-        data[i].stop = (i == inputs.threads - 1) ? inputs.n : range * (i + 1);
+        data[i].start = 2 + (range * i);  // Start from 2 since 0 and 1 are not prime
+        data[i].stop = (i == inputs.threads - 1) ? inputs.n : (2 + (range * (i + 1)) - 1);
         data[i].n = inputs.n;
 
         status = pthread_create(&data[i].tid, NULL, &sum_primes_range, (void *)&data[i]);
@@ -101,7 +99,6 @@ int sum_primes_parallel(inputs_t inputs) {
 }
 
 // Verify if we got a command line arguments
-// Otherwise ask the user for them
 inputs_t get_args(int argc, char* argv[]) {
     inputs_t inputs;
     if (argc == 3) {

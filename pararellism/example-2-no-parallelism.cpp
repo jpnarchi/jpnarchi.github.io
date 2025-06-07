@@ -31,8 +31,7 @@ int sum_primes_sequential(inputs_t inputs) {
     return total_sum;
 }
 
-// Verify if we got a command line argument
-// Otherwise ask the user for it
+
 inputs_t get_args(int argc, char* argv[]) {
     inputs_t inputs;
     if (argc == 2) {

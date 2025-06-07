@@ -17,14 +17,14 @@ defmodule PrimeSum do
       if n == 2 do
         true
       else
-        # Check if number is divisible by any number up to its square root
+
         max = :math.sqrt(n) |> Float.ceil() |> trunc()
         check_divisors(n, 2, max)
       end
     end
   end
 
-  # Check divisors recursively
+  # Check divisors
   defp check_divisors(n, i, max) do
     if i > max do
       true
@@ -39,13 +39,13 @@ defmodule PrimeSum do
 
   # Sum all prime numbers up to n
   def sum_primes(n) do
-    sum = 0
-    for i <- 2..n do
+    Enum.reduce(2..n, 0, fn i, acc ->
       if is_prime(i) do
-        sum = sum + i
+        acc + i
+      else
+        acc
       end
-    end
-    sum
+    end)
   end
 end
 

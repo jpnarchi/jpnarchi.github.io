@@ -39,24 +39,24 @@ defmodule PrimeSum do
 
   # Sum all prime numbers up to n
   def sum_primes(n) do
-    sum = 0
-    for i <- 2..n do
+    Enum.reduce(2..n, 0, fn i, acc ->
       if is_prime(i) do
-        sum = sum + i
+        acc + i
+      else
+        acc
       end
-    end
-    sum
+    end)
   end
 
   # Sum primes in a range
   def sum_primes_range({start, stop}) do
-    sum = 0
-    for i <- start..stop do
+    Enum.reduce(start..stop, 0, fn i, acc ->
       if is_prime(i) do
-        sum = sum + i
+        acc + i
+      else
+        acc
       end
-    end
-    sum
+    end)
   end
 
   # Parallel sum of primes
