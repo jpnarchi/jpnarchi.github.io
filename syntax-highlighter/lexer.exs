@@ -4,7 +4,7 @@ defmodule Lexer do
     # palabras clave de Python
     keywords: ~r/def|class|if|else|elif|while|for|in|try|except|finally|with|as|import|from|return|break|continue|pass|raise|yield|async|await|not|and|or|is|None|True|False|lambda|nonlocal|global|del|self/,
 
-    # data types
+    # data types mejore el regex del INT para poder corregir el error de la entrega pasada
     builtins: ~r/(?<![a-zA-Z0-9_])(?:str|int|float|list|dict|set|tuple|bool|bytes|bytearray|complex|frozenset|object|None|True|False)(?![a-zA-Z0-9_])/,
 
     # decoradores en Python
@@ -236,11 +236,11 @@ defmodule Lexer do
       _ ->
         # Intentar otros tipos de token
         token_types = [
-          {"builtins", @python_tokens.builtins},
+          {"builtins", @python_tokens.builtins}, ## corregi el error del int
           {"operators", @python_tokens.operators},
           {"comments", @python_tokens.comments},
           {"string_literals", @python_tokens.string_literals},
-          {"numbers", @python_tokens.numbers},
+          {"numbers", @python_tokens.numbers}, 
           {"keywords", @python_tokens.keywords},
           {"decorators", @python_tokens.decorators},
           {"special_methods", @python_tokens.special_methods},
