@@ -41,28 +41,20 @@ defmodule Lexer do
     whitespace: ~r/[ \t]+/
   }
 
-  def process_directory(input_dir, output_dir) do
-    # Get all Python files from input directory
-    input_files = Path.wildcard(Path.join(input_dir, "*.py"))
-
-    # Process files sequentially
-    results = Enum.map(input_files, fn input_file ->
-      output_file = Path.join(output_dir, String.replace(Path.basename(input_file), ".py", ".html"))
-      process_file(input_file, output_file)
-      {input_file, {:ok, output_file}}
+  def process_files(input_files, output_dir) do
+    # Create tasks for each file
+    tasks = input_files
+    |> Enum.map(fn input_file ->
+      output_file = Path.join(output_dir, Path.basename(input_file, ".py") <> ".html")
+      Task.async(fn -> process_file(input_file, output_file) end)
     end)
 
-    # Print results
-    IO.puts("--------------------------------")
-    IO.puts("--SEQUENTIAL PROCESSING COMPLETED--")
-    IO.puts("--------------------------------")
-    Enum.each(results, fn {input_file, {:ok, output_file}} ->
-      input_name = Path.basename(input_file)
-      output_name = Path.basename(output_file)
-      IO.puts("Processed #{input_name} -> #{output_name}")
-    end)
+    # Wait for all tasks to complete and collect results
+    results = tasks
+    |> Enum.map(fn task -> Task.await(task, :infinity) end)
 
-    results
+    # Return results paired with input files
+    Enum.zip(input_files, results)
   end
 
   def process_file(input_file, output_file) do
@@ -75,7 +67,7 @@ defmodule Lexer do
     # Escribir el archivo de salida
     File.write!(output_file, html_content)
 
-
+    {:ok, output_file}
   end
 
   defp generate_html(content) do
@@ -195,12 +187,12 @@ defmodule Lexer do
 
         "<span class=\"#{type}\">#{escaped_text}</span>"
       end)
-      |> Enum.join("")
+      |> Enum.join("") ## Corrección de programa para que no se junten las líneas
 
       # Envolver cada línea en un div con número de línea
       "<div class=\"line\">#{line_html}</div>"
     end)
-    |> Enum.join("\n")
+    |> Enum.join("\n") ## Corrección de programa para que no se junten las líneas
 
     html_footer = """
         </pre>
@@ -260,7 +252,7 @@ defmodule Lexer do
       _ ->
         # Intentar otros tipos de token
         token_types = [
-          {"builtins", @python_tokens.builtins},
+          {"builtins", @python_tokens.builtins}, ## corregi el error del int
           {"operators", @python_tokens.operators},
           {"comments", @python_tokens.comments},
           {"string_literals", @python_tokens.string_literals},
@@ -288,11 +280,36 @@ defmodule Lexer do
   end
 end
 
-# Create output directory if it doesn't exist
-case System.argv() do
-  [input_dir, output_dir] ->
-    File.mkdir_p!(output_dir)
-    Lexer.process_directory(input_dir, output_dir)
-  _ ->
-    IO.puts("Usage: elixir lexer.exs <input_directory> <output_directory>")
+defmodule Main do
+  def main(args) do
+    # Check how many arguments were sent
+    case args do
+      # Two arguments: input directory and output directory
+      [input_dir, output_dir] ->
+        # Get all Python files from input directory
+        input_files = Path.wildcard(Path.join(input_dir, "*.py"))
+
+
+
+          # Process files in parallel
+          results = Lexer.process_files(input_files, output_dir)
+
+          # Print results
+          IO.puts("--------------------------------")
+          IO.puts("--PARARELLISM DONE SUCCESFULLY--")
+          IO.puts("--------------------------------")
+          Enum.each(results, fn {input_file, {:ok, output_file}} ->
+            input_name = Path.basename(input_file) # I did this to show nicely the name of the file and the output file
+            output_name = Path.basename(output_file)
+            IO.puts("Processed #{input_name} -> #{output_name}")
+
+          end)
+        end
+
+
+    end
+
 end
+
+# Call the main function with the arguments used in the command line
+Main.main(System.argv())
